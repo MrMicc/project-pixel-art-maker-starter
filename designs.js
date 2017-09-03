@@ -1,10 +1,19 @@
-// Select color input
-// Select size input
+const form = document.getElementById('sizePicker');
 
-// When size is submitted by the user, call makeGrid()
+form.onsubmit = function (event) {
+  event.preventDefault();
+  makeGrid();
+};
 
 function makeGrid() {
+    let board = new Board(
+            document.getElementById('input_height').value,
+            document.getElementById('input_width').value,
+            document.getElementById('colorPicker').value,
+            document.getElementById('pixel_canvas'));
 
-// Your code goes here!
+    board.reset();
+    board.createRowColumns();
+    board.paintCell();
 
 }
